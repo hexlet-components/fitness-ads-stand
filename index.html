@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Пульс — рекламные площадки</title>
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body class="bg-slate-100 text-slate-900 antialiased">
+    <details id="stand" class="bg-slate-900 text-sm text-slate-100" open>
+      <summary class="cursor-pointer px-4 py-2 font-medium select-none">
+        Стенд · адрес сайта клуба
+        <span id="stand-status" class="ml-2 text-slate-400">не указан</span>
+      </summary>
+      <form
+        id="site-form"
+        class="mx-auto flex max-w-5xl flex-col gap-3 px-4 pb-4 sm:flex-row sm:items-end"
+      >
+        <label class="flex-1">
+          <span class="mb-1 block text-slate-300">Адрес вашего сайта</span>
+          <input
+            name="site"
+            type="text"
+            inputmode="url"
+            required
+            placeholder="https://…"
+            class="w-full rounded-md border border-slate-600 bg-slate-800 px-3 py-2 text-slate-100 placeholder:text-slate-500 focus:border-pink-400 focus:outline-none"
+          />
+        </label>
+        <button class="rounded-md bg-pink-500 px-4 py-2 font-medium text-white hover:bg-pink-400">
+          Сохранить
+        </button>
+      </form>
+      <p
+        id="site-error"
+        class="mx-auto max-w-5xl px-4 pb-4 text-rose-300 empty:hidden"
+        aria-live="polite"
+      ></p>
+    </details>
+
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-5xl items-center gap-3 px-4 py-4">
+        <img src="/logo.svg" alt="" class="size-9" />
+        <div>
+          <p class="text-lg font-bold">Рекламные площадки клуба «Пульс»</p>
+          <p class="text-sm text-slate-500">
+            Объявления ведут на ваш сайт с UTM-метками. Кликайте по ним как посетитель.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto grid max-w-5xl gap-6 px-4 py-8 lg:grid-cols-2">
+      <section
+        class="rounded-2xl bg-white p-5 shadow-sm lg:col-span-2"
+        aria-labelledby="search-title"
+      >
+        <h2
+          id="search-title"
+          class="mb-3 text-sm font-semibold tracking-wide text-slate-500 uppercase"
+        >
+          Поиск
+        </h2>
+        <div
+          class="mb-4 flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-slate-700"
+        >
+          <span aria-hidden="true">🔍</span>
+          фитнес клуб рядом
+        </div>
+        <ol class="space-y-4">
+          <li>
+            <p class="text-xs text-slate-500">
+              <span class="mr-1 rounded bg-amber-100 px-1.5 py-0.5 font-medium text-amber-800"
+                >Реклама</span
+              >
+              <span data-site-host>pulse-fitness</span>
+            </p>
+            <a
+              data-ad="search"
+              target="_blank"
+              rel="noopener"
+              class="text-lg font-medium text-blue-700 hover:underline"
+              >Фитнес-клуб «Пульс» — первая тренировка бесплатно</a
+            >
+            <p class="text-sm text-slate-600">
+              Бассейн, йога, тренажёрный зал и персональные тренеры. Запишитесь онлайн за минуту.
+            </p>
+          </li>
+          <li class="opacity-60">
+            <p class="text-xs text-slate-500">sport-guide.example</p>
+            <p class="text-lg text-blue-700">
+              Как выбрать фитнес-клуб: 7 вопросов перед покупкой абонемента
+            </p>
+            <p class="text-sm text-slate-600">Разбираем цены, расписание и пробные тренировки.</p>
+          </li>
+          <li class="opacity-60">
+            <p class="text-xs text-slate-500">maps.example</p>
+            <p class="text-lg text-blue-700">Фитнес-клубы на карте района</p>
+            <p class="text-sm text-slate-600">Адреса, часы работы и отзывы.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="rounded-2xl bg-white p-5 shadow-sm" aria-labelledby="social-title">
+        <h2
+          id="social-title"
+          class="mb-3 text-sm font-semibold tracking-wide text-slate-500 uppercase"
+        >
+          Соцсеть
+        </h2>
+        <div class="mb-3 flex items-center gap-3">
+          <img src="/logo.svg" alt="" class="size-10 rounded-full" />
+          <div>
+            <p class="font-semibold">Фитнес-клуб «Пульс»</p>
+            <p class="text-xs text-slate-500">Реклама</p>
+          </div>
+        </div>
+        <p class="mb-3 text-slate-700">
+          Весной в форму! Абонемент на три месяца со скидкой 20% до конца месяца.
+        </p>
+        <div
+          class="mb-3 flex h-40 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500 to-violet-500 text-2xl font-bold text-white"
+        >
+          −20% на весну
+        </div>
+        <a
+          data-ad="social"
+          target="_blank"
+          rel="noopener"
+          class="block rounded-lg bg-blue-600 px-4 py-2 text-center font-medium text-white hover:bg-blue-500"
+          >Записаться</a
+        >
+      </section>
+
+      <section class="rounded-2xl bg-white p-5 shadow-sm" aria-labelledby="channel-title">
+        <h2
+          id="channel-title"
+          class="mb-3 text-sm font-semibold tracking-wide text-slate-500 uppercase"
+        >
+          Канал в мессенджере
+        </h2>
+        <p class="mb-3 text-sm text-slate-500">Канал «Пульс · новости клуба»</p>
+        <div class="rounded-2xl rounded-bl-sm bg-sky-50 p-4 text-slate-800">
+          <p class="mb-2">
+            Открыли новый зал для функциональных тренировок 💪 Приходите на бесплатную пробную
+            тренировку с тренером, места на неделю ещё есть.
+          </p>
+          <a
+            data-ad="channel"
+            target="_blank"
+            rel="noopener"
+            class="font-medium text-sky-700 hover:underline"
+            >Записаться на пробную тренировку</a
+          >
+          <p class="mt-2 text-right text-xs text-slate-400">👁 1,2K · 10:15</p>
+        </div>
+      </section>
+
+      <section
+        class="rounded-2xl bg-white p-5 shadow-sm lg:col-span-2"
+        aria-labelledby="tips-title"
+      >
+        <h2
+          id="tips-title"
+          class="mb-3 text-sm font-semibold tracking-wide text-slate-500 uppercase"
+        >
+          Как заходить
+        </h2>
+        <p class="mb-2 text-slate-700">
+          Метрика узнаёт посетителя по метке в браузере. Чтобы каждый заход считался новым
+          посетителем, копируйте ссылку объявления правой кнопкой мыши и открывайте её в новом окне
+          инкогнито.
+        </p>
+        <p class="mb-4 text-slate-700">
+          Оставляйте заявки с разными комментариями, тогда модели будет что разложить по категориям.
+          Пишите вымышленные имена и телефоны.
+        </p>
+        <ul id="comments" class="grid gap-2 sm:grid-cols-2"></ul>
+      </section>
+    </main>
+  </body>
+</html>
