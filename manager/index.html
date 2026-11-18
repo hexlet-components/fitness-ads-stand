@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Пульс — рабочее место менеджера</title>
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/manager.ts"></script>
+  </head>
+  <body class="bg-slate-100 text-slate-900 antialiased">
+    <div id="stand" class="bg-slate-900 text-sm text-slate-100">
+      <div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2">
+        <span class="font-medium">Стенд · рабочее место менеджера</span>
+        <span id="connection" class="text-slate-400">подключаемся…</span>
+        <button
+          id="notify"
+          type="button"
+          class="ml-auto rounded-md border border-slate-600 px-3 py-1 hover:bg-slate-800"
+        >
+          Включить уведомления
+        </button>
+      </div>
+      <p id="stand-notice" class="mx-auto max-w-5xl px-4 pb-3 text-amber-200 empty:hidden"></p>
+    </div>
+
+    <header class="border-b border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-5xl items-center gap-3 px-4 py-4">
+        <img src="/logo.svg" alt="" class="size-9" />
+        <div class="flex-1">
+          <p class="text-lg font-bold">Заявки клуба «Пульс»</p>
+          <p class="text-sm text-slate-500">
+            Новые заявки появляются сами, страницу обновлять не нужно.
+          </p>
+        </div>
+        <nav class="flex gap-2 text-sm" role="tablist">
+          <button
+            type="button"
+            role="tab"
+            data-tab="leads"
+            aria-selected="true"
+            class="rounded-md px-3 py-1.5 aria-selected:bg-pink-100 aria-selected:text-pink-800"
+          >
+            Заявки
+            <span
+              id="waiting-count"
+              class="ml-1 rounded-full bg-pink-500 px-2 text-xs text-white empty:hidden"
+            ></span>
+          </button>
+          <button
+            type="button"
+            role="tab"
+            data-tab="report"
+            aria-selected="false"
+            class="rounded-md px-3 py-1.5 aria-selected:bg-pink-100 aria-selected:text-pink-800"
+          >
+            Отчёт
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 py-6">
+      <section id="tab-leads">
+        <p
+          id="leads-error"
+          class="mb-4 rounded-lg border border-rose-300 bg-rose-50 px-4 py-3 text-rose-900 empty:hidden"
+        ></p>
+        <p id="leads-empty" class="hidden rounded-2xl bg-white p-8 text-center text-slate-500">
+          Заявок пока нет. Отправьте заявку с сайта клуба, и она появится здесь.
+        </p>
+        <ul id="leads" class="grid gap-3"></ul>
+      </section>
+
+      <section id="tab-report" hidden>
+        <p
+          id="report-error"
+          class="mb-4 rounded-lg border border-rose-300 bg-rose-50 px-4 py-3 text-rose-900 empty:hidden"
+        ></p>
+        <div class="overflow-x-auto rounded-2xl bg-white shadow-sm">
+          <table class="w-full text-left text-sm">
+            <thead class="text-slate-500">
+              <tr>
+                <th class="px-4 py-3 font-medium">Источник</th>
+                <th class="px-4 py-3 text-right font-medium">Визиты</th>
+                <th class="px-4 py-3 text-right font-medium">Заявки</th>
+                <th class="px-4 py-3 text-right font-medium">Взято</th>
+                <th class="px-4 py-3 text-right font-medium">Конверсия</th>
+              </tr>
+            </thead>
+            <tbody id="report" class="tabular-nums"></tbody>
+          </table>
+        </div>
+        <button
+          id="report-refresh"
+          type="button"
+          class="mt-4 rounded-md bg-pink-500 px-4 py-2 font-medium text-white hover:bg-pink-400"
+        >
+          Обновить отчёт
+        </button>
+      </section>
+    </main>
+  </body>
+</html>
